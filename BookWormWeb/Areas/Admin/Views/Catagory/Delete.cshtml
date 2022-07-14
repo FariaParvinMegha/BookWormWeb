@@ -7,7 +7,7 @@
             <h2 class="text-primary">Delete Catagory</h2>
             <hr />
         </div>
-        <div asp-validation-summary="All"></div>
+        @*<div asp-validation-summary="All"></div>*@
         <div class="mb-3">
             <label asp-for="Name"></label>
             <input asp-for="Name" disabled class="form-control" />
@@ -17,7 +17,7 @@
             <input asp-for="DisplayOrder" disabled class="form-control" />
         </div>
         <button type="submit" class="btn btn-danger" style="width: 150px">Delete</button>
-        <a asp-controller="Catagory" asp-action="Index" class="btn btn-primary" style="widht:150px">
+        <a asp-controller="Catagory" asp-action="Index" class="btn btn-secondary" style="width:150px">
             Back To List
         </a>
     </div>

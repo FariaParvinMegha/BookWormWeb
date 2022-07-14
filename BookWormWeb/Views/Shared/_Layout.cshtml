@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BookWormWeb</title>
-    <link rel="stylesheet" href="~/css/BootswatchTheme.css" />
+    <link rel="stylesheet" href="~/css/BootSwatchTheme.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BookWormWeb.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="///cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
@@ -13,7 +13,7 @@
 <body>
     <header>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,28 +23,24 @@
             <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Catagory" asp-action="Index">Catagory</a>
+                    <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
             
-            @*<li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Content Management</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="Catagory" asp-action="Index">Catagory</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="CoverType" asp-action="Index">Cover Type</a>
+                <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
+                @*<div class="dropdown-divider"></div>*@
               </div>
-            </li>*@
+            </li>
             </ul>
 
-            <form class="d-flex">
+            @*<form class="d-flex">
                 <input class="form-control me-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            </form>*@
             </div>
         </div>
         </nav>
@@ -57,7 +53,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer bg-dark">
+    <footer class="footer text-muted bg-primary">
         <div class="container">
             &copy; 2022 - BookWormWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

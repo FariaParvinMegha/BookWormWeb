@@ -1,18 +1,21 @@
-﻿using BookWorm.Models;
+﻿
+using BookWorm.DataAccess;
+using BookWorm.DataAccess.Repository.IRepository;
+using BookWorm.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookWormWeb.Controllers
+namespace BookWormWeb.Areas.Admin.Controllers
 {
     public class CatagoryController : Controller
     {
-        private readonly ApplicationDbContext _db;
-        public CatagoryController(ApplicationDbContext db)
+        private readonly IUnitOfWork _UnitOfWork;
+        public CatagoryController(IUnitOfWork UnitOfWork)
         {
-            _db = db;
+            _UnitOfWork = UnitOfWork;
         }
         public IActionResult Index()
         {
-            IEnumerable<Catagory> objCatagoryList = _db.Catagories;
+            IEnumerable<Catagory> objCatagoryList = _UnitOfWork.Catagory.GetAll();
             return View(objCatagoryList);
         }
 
@@ -35,8 +38,8 @@ namespace BookWormWeb.Controllers
             }
             if (ModelState.IsValid)
             {
-                _db.Catagories.Add(obj);
-                _db.SaveChanges();
+                _UnitOfWork.Catagory.Add(obj);
+                _UnitOfWork.Save();
                 TempData["success"] = "Catagory created successfully";
                 return RedirectToAction("Index");
             }
@@ -52,15 +55,15 @@ namespace BookWormWeb.Controllers
             {
                 return NotFound();
             }
-            var catagoryFromDb = _db.Catagories.Find(id);
-            //var catagoryFromFirst = _db.Catagories.FirstOrDefault(u => u.Id == id);
+            //var catagoryFromDb = _db.Catagories.Find(id);
+            var catagoryFromDbFirst = _UnitOfWork.Catagory.GetFirstOrDefault(u => u.Id == id);
             //var catagoryFromSingle = _db.Catagories.SingleOrDefault(u => u.Id == id);
 
-            if (catagoryFromDb == null)
+            if (catagoryFromDbFirst == null)
             {
                 return NotFound();
             }
-            return View(catagoryFromDb);
+            return View(catagoryFromDbFirst);
         }
 
         //POST
@@ -74,8 +77,8 @@ namespace BookWormWeb.Controllers
             }
             if (ModelState.IsValid)
             {
-                _db.Catagories.Update(obj);
-                _db.SaveChanges();
+                _UnitOfWork.Catagory.Update(obj);
+                _UnitOfWork.Save();
                 TempData["success"] = "Catagory edited successfully";
                 return RedirectToAction("Index");
             }
@@ -91,15 +94,15 @@ namespace BookWormWeb.Controllers
             {
                 return NotFound();
             }
-            var catagoryFromDb = _db.Catagories.Find(id);
-            //var catagoryFromFirst = _db.Catagories.FirstOrDefault(u => u.Id == id);
+            //var catagoryFromDb = _db.Catagories.Find(id);
+            var catagoryFromDbFirst = _UnitOfWork.Catagory.GetFirstOrDefault(u => u.Id == id);
             //var catagoryFromSingle = _db.Catagories.SingleOrDefault(u => u.Id == id);
 
-            if (catagoryFromDb == null)
+            if (catagoryFromDbFirst == null)
             {
                 return NotFound();
             }
-            return View(catagoryFromDb);
+            return View(catagoryFromDbFirst);
         }
 
         //POST
@@ -107,16 +110,15 @@ namespace BookWormWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
-            var obj = _db.Catagories.Find(id);
+            var obj = _UnitOfWork.Catagory.GetFirstOrDefault(u => u.Id == id);
             if (obj == null)
             {
                 return NotFound();
             }
-            _db.Catagories.Remove(obj);
-            _db.SaveChanges();
+            _UnitOfWork.Catagory.Remove(obj);
+            _UnitOfWork.Save();
             TempData["success"] = "Catagory deleted successfully";
             return RedirectToAction("Index");
         }
-    } 
-}
+    }
 }
