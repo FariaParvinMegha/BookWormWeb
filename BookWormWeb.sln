@@ -5,11 +5,13 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookWormWeb", "BookWormWeb\BookWormWeb.csproj", "{84C31CA2-5E3B-4A06-A1DD-C8EF7FFA91F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookWorm.DataAccess", "BookWorm.DataAccess\BookWorm.DataAccess.csproj", "{6BC7A5B6-47D2-4FB0-BCAE-B3DF907DD875}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookWorm.DataAccess", "BookWorm.DataAccess\BookWorm.DataAccess.csproj", "{6BC7A5B6-47D2-4FB0-BCAE-B3DF907DD875}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookWorm.Models", "BookWorm.Models\BookWorm.Models.csproj", "{251E1F8A-FA04-4C86-BE67-2D5ACE4583FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookWorm.Models", "BookWorm.Models\BookWorm.Models.csproj", "{251E1F8A-FA04-4C86-BE67-2D5ACE4583FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookWorm.Utility", "BookWorm.Utility\BookWorm.Utility.csproj", "{9CD060CF-4030-496A-AE19-C42A125E4D9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookWorm.Utility", "BookWorm.Utility\BookWorm.Utility.csproj", "{9CD060CF-4030-496A-AE19-C42A125E4D9D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E89D9775-92A5-4164-86A0-793A18652680}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookWorm.DataAccess.Repository.IRepository
-{
+namespace BookWorm.DataAccess.Repository.IRepository;
+
     public interface IUnitOfWork
     {
         ICatagoryRepository Catagory { get; }
@@ -14,4 +14,4 @@ namespace BookWorm.DataAccess.Repository.IRepository
 
         void Save();
     }
-}
+

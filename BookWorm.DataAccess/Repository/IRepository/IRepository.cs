@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookWorm.DataAccess.Repository.IRepository
 {
+
     public interface IRepository<T> where T : class
     {
         //T-Catagory
